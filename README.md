@@ -1,7 +1,7 @@
 # CarRent
 
 ToDo:
-- Console program(so far). <br/>
+- Console program(so far).
 - Multilevel access to the logging panel.
 - Car rental should have specified number of places. 
 - Possibility to add/remove cars to the Database of them.
