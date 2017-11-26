@@ -1,4 +1,4 @@
-package jdbc;
+package databaseOperations;
 
 import java.sql.DriverManager;
 
