@@ -1,4 +1,4 @@
-package carrent;
+package mainThings;
 
 import java.util.Scanner;
 

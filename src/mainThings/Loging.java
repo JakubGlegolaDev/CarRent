@@ -1,4 +1,4 @@
-package loging;
+package mainThings;
 
 public class Loging {
 	
