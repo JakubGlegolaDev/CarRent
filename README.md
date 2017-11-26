@@ -8,6 +8,6 @@ ToDo:
 - After user entered "status" program should show list of available cars and inform about number of places.
 Also convict if the rental is full or not...
 
-(maybe in future) <cr/>
+(maybe in future) </cr>
 Tests:
 - in progress...
