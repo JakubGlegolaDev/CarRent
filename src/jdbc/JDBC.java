@@ -6,11 +6,11 @@ import com.mysql.jdbc.Connection;
 
 public class JDBC {
 
-	private static String URL = "jdbc:mysql://localhost:3306/CarRent";
+	private static String URL = "jdbc:mysql://localhost:3306/carrent";
 	private static String User = "root";
 	private static String Password = "root";
 	
-	public static Connection getConnection() {
+	public static Connection getConnection() throws Exception {
 		Connection connection = null;
 		try {
 			connection = (Connection)DriverManager.getConnection(URL, User, Password);
