@@ -1,8 +1,11 @@
 package databaseOperations;
 
 import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
 
 public class JDBC {
 
@@ -23,11 +26,8 @@ public class JDBC {
 			System.out.println(e);
 			e.printStackTrace();
 		}
-		
 		return connection;
 	}
-	
-	
 	
 	
 }
