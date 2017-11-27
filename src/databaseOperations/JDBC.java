@@ -6,20 +6,22 @@ import com.mysql.jdbc.Connection;
 
 public class JDBC {
 
-	private static String URL = "jdbc:mysql://localhost:3306/carrent";
-	private static String User = "root";
-	private static String Password = "root";
+	private static String URL = "jdbc:mysql://149.156.96.20:3306/jglegola";
+	private static String User = "jglegola";
+	private static String Password = "87KwxYGh15ktgViX";
 	
 	public static Connection getConnection() throws Exception {
 		Connection connection = null;
 		try {
-			connection = (Connection)DriverManager.getConnection(URL, User, Password);
+			//Class.forName(className)
+			connection = (Connection) DriverManager.getConnection(URL, User, Password);
 			if(connection!=null) {
 				System.out.println("Connection finished with success");
 			}
 		} 
 		catch(Exception e) {
-			System.out.println("Connection FAILED");
+			System.out.println(e);
+			e.printStackTrace();
 		}
 		
 		return connection;
