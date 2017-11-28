@@ -1,12 +1,10 @@
 package databaseOperations;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
 
 public class DatabaseOperations {
 
@@ -17,9 +15,10 @@ public class DatabaseOperations {
 	public static Connection getConnection() throws Exception {
 		
 		Connection connection = null;
+		
 		try {
 			//Class.forName(className)
-			connection = (Connection) DriverManager.getConnection(URL, User, Password);
+			connection = DriverManager.getConnection(URL, User, Password);
 			if(connection!=null) {
 				System.out.println("Connection finished with success");
 			}
@@ -27,12 +26,13 @@ public class DatabaseOperations {
 			System.out.println(e);
 			e.printStackTrace();
 		}
+
 		return connection;
 	}
 	
 
 	// DOESNT WORK... do not create any table(checked in phpmyadmin)
-public static void createTable() throws Exception {
+	public static void createTable() throws Exception {
 		
 		String cr = "CREATE TABLE IF NOT EXISTS test2(ID int(5) AUTO_INCREMENT, name VARCHAR(40);";
 		DatabaseOperations jdbc = new DatabaseOperations();
@@ -47,7 +47,8 @@ public static void createTable() throws Exception {
 		}
 	}
 	
-
+	
+	
 		// WORKS WELL
 	public static ArrayList<String> getALL() throws Exception{
 		
@@ -97,7 +98,7 @@ public static void createTable() throws Exception {
 
 	public static void insertCar(int id, String make, String model, int year, String availability) {
 		try {
-			Connection connection = 
+			Connection connection = null;
 			PreparedStatement preStatement = connection.prepareStatement("INSERT INTO Car(ID,Make,Model,Year,Availability) VALUES(?,?,?,?,?)");
 			
 		}
