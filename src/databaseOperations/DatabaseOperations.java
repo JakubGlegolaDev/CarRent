@@ -7,13 +7,14 @@ import java.util.ArrayList;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-public class JDBC {
+public class DatabaseOperations {
 
 	private static String URL = "jdbc:mysql://149.156.96.20:3306/jglegola";
 	private static String User = "jglegola";
 	private static String Password = "87KwxYGh15ktgViX";
 	
 	public static Connection getConnection() throws Exception {
+		
 		Connection connection = null;
 		try {
 			//Class.forName(className)
@@ -28,6 +29,7 @@ public class JDBC {
 		}
 		return connection;
 	}
+	
 	
 	
 }

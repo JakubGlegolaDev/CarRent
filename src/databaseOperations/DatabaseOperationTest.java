@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
 
-public class JDBCtest {
+public class DatabaseOperationTest {
 
 
 
@@ -14,7 +14,7 @@ public class JDBCtest {
 public static void createTable() throws Exception {
 		
 		String cr = "CREATE TABLE IF NOT EXISTS test2(ID int(5) AUTO_INCREMENT, name VARCHAR(40);";
-		JDBC jdbc = new JDBC();
+		DatabaseOperations jdbc = new DatabaseOperations();
 		
 		try {
 			Connection connection = jdbc.getConnection();
@@ -30,7 +30,7 @@ public static void createTable() throws Exception {
 		// WORKS WELL
 	public static ArrayList<String> getALL() throws Exception{
 		
-		JDBC jdbc = new JDBC();
+		DatabaseOperations jdbc = new DatabaseOperations();
 		
 		try {
 			Connection connection = jdbc.getConnection();
@@ -55,7 +55,7 @@ public static void createTable() throws Exception {
 		//WORKS WELL
 	public static ArrayList<String> getID() throws Exception{
 		
-		JDBC jdbc = new JDBC();
+		DatabaseOperations jdbc = new DatabaseOperations();
 		
 		try {
 			Connection connection = jdbc.getConnection();

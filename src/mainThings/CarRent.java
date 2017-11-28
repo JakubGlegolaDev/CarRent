@@ -2,14 +2,14 @@ package mainThings;
 
 import java.util.Scanner;
 
-import databaseOperations.JDBC;
-import databaseOperations.JDBCtest;
+import databaseOperations.DatabaseOperations;
+import databaseOperations.DatabaseOperationTest;
 
 public class CarRent {
 	
 	public static void main(String args[]) throws Exception {
 		
-		JDBCtest jdbctest = new JDBCtest();
+		DatabaseOperationTest jdbctest = new DatabaseOperationTest();
 		jdbctest.getALL();
 		System.out.println("\n------------------");
 		jdbctest.getID();
