@@ -1,10 +1,7 @@
 package databaseOperations;
 
-import java.sql.Connection;
-import java.sql.DatabaseMetaData;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DatabaseOperations {
@@ -39,7 +36,7 @@ public class DatabaseOperations {
 		String selectAll = "SELECT * FROM testowa;";
 		
 		try {
-			// TUTAJ JU¯ WYWO£ANIE NA TYM object.
+			// TUTAJ JU¯ WYWO£ANIE NA TYM statement.
 			ResultSet result = statement.executeQuery(selectAll);
 			
 			ArrayList<String> array = new ArrayList<String>();
