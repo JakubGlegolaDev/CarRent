@@ -89,4 +89,16 @@ public class DatabaseOperations {
 		}
 	}
 	
+	public void insertExample() throws Exception {
+		
+		String insertion = "INSERT INTO testowa " + "VALUES (3, 'hello')";
+		
+		try {
+			statement.executeUpdate(insertion);
+		}catch(Exception e) {
+			System.out.println(e);
+		}
+		
+	}
+	
 }
