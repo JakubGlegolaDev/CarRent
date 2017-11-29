@@ -11,6 +11,7 @@ public static void main(String args[]) throws Exception {
 		dboper.getConnection();
 		dboper.getALL();
 		dboper.getID();
+		dboper.checkExistance();
 	
 		
 		String type = "";

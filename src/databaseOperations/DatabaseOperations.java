@@ -1,6 +1,7 @@
 package databaseOperations;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -13,6 +14,7 @@ public class DatabaseOperations {
 	private static String Password = "87KwxYGh15ktgViX";
 	Connection connection;
 	Statement statement;
+	DatabaseMetaData dbMetaData;
 	
 	
 	public Connection getConnection() throws Exception {
@@ -71,6 +73,23 @@ public class DatabaseOperations {
 			System.out.println(e);
 		}
 		return null;
+	}
+	
+	
+	public void checkExistance() throws Exception{
+		
+		try {
+	
+			dbMetaData = connection.getMetaData();
+			ResultSet result = dbMetaData.getTables(null, null, "testowa", null);
+			if(result.next()) {
+				System.out.println("Base found");
+			} else {
+				System.out.println("Base does not found");
+			}
+		}catch(Exception e){
+			System.out.println(e);
+		}
 	}
 	
 }
