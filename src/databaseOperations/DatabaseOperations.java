@@ -2,8 +2,8 @@ package databaseOperations;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class DatabaseOperations {
@@ -11,13 +11,13 @@ public class DatabaseOperations {
 	private static String URL = "jdbc:mysql://149.156.96.20:3306/jglegola";
 	private static String User = "jglegola";
 	private static String Password = "87KwxYGh15ktgViX";
+	Connection connection;
+	Statement statement;
 	
-	public static Connection getConnection() throws Exception {
-		
-		Connection connection = null;
+	
+	public Connection getConnection() throws Exception {
 		
 		try {
-			//Class.forName(className)
 			connection = DriverManager.getConnection(URL, User, Password);
 			if(connection!=null) {
 				System.out.println("Connection finished with success");
@@ -26,39 +26,19 @@ public class DatabaseOperations {
 			System.out.println(e);
 			e.printStackTrace();
 		}
-
+		// DODANY STATEMENT
+		statement = connection.createStatement(); //Creating Statement Class's object which is responsible for performing all db tasks
 		return connection;
 	}
 	
-
-	// DOESNT WORK... do not create any table(checked in phpmyadmin)
-	public static void createTable() throws Exception {
-		
-		String cr = "CREATE TABLE IF NOT EXISTS test2(ID int(5) AUTO_INCREMENT, name VARCHAR(40);";
-		DatabaseOperations jdbc = new DatabaseOperations();
+	
+	public ArrayList<String> getALL() throws Exception{
+		//QUERY DO BAZY DANYCH.
+		String selectAll = "SELECT * FROM testowa;";
 		
 		try {
-			Connection connection = jdbc.getConnection();
-			PreparedStatement create = (PreparedStatement) connection.prepareStatement(cr);
-		} catch(Exception e) {
-			System.out.println(e);
-		} finally {
-			System.out.println("Function complete");
-		}
-	}
-	
-	
-	
-		// WORKS WELL
-	public static ArrayList<String> getALL() throws Exception{
-		
-		DatabaseOperations jdbc = new DatabaseOperations();
-		
-		try {
-			Connection connection = jdbc.getConnection();
-			PreparedStatement statement = (PreparedStatement) connection.prepareStatement("SELECT * from testowa;");
-			
-			ResultSet result = statement.executeQuery();
+			// TUTAJ JU¯ WYWO£ANIE NA TYM object.
+			ResultSet result = statement.executeQuery(selectAll);
 			
 			ArrayList<String> array = new ArrayList<String>();
 			while(result.next()) {
@@ -74,16 +54,13 @@ public class DatabaseOperations {
 	}
 	
 	
-		//WORKS WELL
-	public static ArrayList<String> getID() throws Exception{
+	public ArrayList<String> getID() throws Exception{
 		
-		DatabaseOperations jdbc = new DatabaseOperations();
+		String selectID = "SELECT ID FROM testowa;";
 		
 		try {
-			Connection connection = jdbc.getConnection();
-			PreparedStatement statement = (PreparedStatement) connection.prepareStatement("SELECT ID from testowa;");
 			
-			ResultSet result = statement.executeQuery();
+			ResultSet result = statement.executeQuery(selectID);
 			
 			ArrayList<String> array = new ArrayList<String>();
 			while(result.next()) {
@@ -94,14 +71,6 @@ public class DatabaseOperations {
 			System.out.println(e);
 		}
 		return null;
-	}
-
-	public static void insertCar(int id, String make, String model, int year, String availability) {
-		try {
-			Connection connection = null;
-			PreparedStatement preStatement = connection.prepareStatement("INSERT INTO Car(ID,Make,Model,Year,Availability) VALUES(?,?,?,?,?)");
-			
-		}
 	}
 	
 }
