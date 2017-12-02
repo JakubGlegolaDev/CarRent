@@ -12,6 +12,7 @@ public class DatabaseOperations {
 	Connection connection;
 	Statement statement;
 	DatabaseMetaData dbMetaData;
+	PreparedStatement preparedStatement;
 	
 	
 	public Connection getConnection() throws Exception {
@@ -89,9 +90,10 @@ public class DatabaseOperations {
 		}
 	}
 	
-	public void insertExample() throws Exception {
+	
+	public void insertExample(String name) throws Exception {
 		
-		String insertion = "INSERT INTO testowa " + "VALUES (3, 'hello')";
+		String insertion = "INSERT INTO testowa " + "VALUES (,"+name+")";
 		
 		try {
 			statement.executeUpdate(insertion);

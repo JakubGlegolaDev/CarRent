@@ -12,7 +12,8 @@ public static void main(String args[]) throws Exception {
 		dboper.getALL();
 		dboper.getID();
 		dboper.checkExistance();
-		dboper.insertExample();
+		dboper.insertExample("name");
+		dboper.insertExample("imie2");
 	
 		
 		String type = "";
