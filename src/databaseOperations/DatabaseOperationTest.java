@@ -14,6 +14,10 @@ public static void main(String args[]) throws Exception {
 		dboper.checkExistance();
 		dboper.insertExample("name");
 		dboper.insertExample("imie2");
+		
+//		dboper.inserExamplePS("Malgorzata");
+		
+		dboper.insertCar("e90", "BMW", 2008, "Tak");
 	
 		
 		String type = "";

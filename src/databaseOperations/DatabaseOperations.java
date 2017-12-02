@@ -103,4 +103,44 @@ public class DatabaseOperations {
 		
 	}
 	
+	public void inserExamplePS(String name) throws Exception{
+		
+		preparedStatement = connection.prepareStatement("INSERT INTO testowa(name) VALUES(?)");
+		preparedStatement.setString(1, name);
+		try {
+			preparedStatement.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
+		
+	}
+	
+	public void insertCar(String model, String make, int year, String availability) throws Exception{
+		preparedStatement = connection.prepareStatement("INSERT INTO Car(Model, Make, Year, Availability) VALUES(?,?,?,?)");
+		preparedStatement.setString(1, model);
+		preparedStatement.setString(2, make);
+		preparedStatement.setInt(3, year);
+		preparedStatement.setString(4, availability);
+		
+		try {
+			preparedStatement.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println(e);
+		}finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
+	}
+	
+	
+	
+	
+	
 }
