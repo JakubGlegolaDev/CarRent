@@ -10,6 +10,7 @@ public static void main(String args[]) throws Exception {
 		
 
 		DatabaseOperations dboper = new DatabaseOperations();
+<<<<<<< HEAD
 //		dboper.getALL();
 //		dboper.getID();
 		dboper.checkExistance();
@@ -18,6 +19,12 @@ public static void main(String args[]) throws Exception {
 //		dboper.insertClient(88052375680L, "Malgosia", "Bak");
 		dboper.getCar();
 		dboper.getClient();
+=======
+		dboper.getConnection();
+		dboper.getALL();
+		dboper.getID();
+		dboper.checkExistanceCar();
+>>>>>>> kBranch
 		
 		String type = "";
 		
