@@ -47,11 +47,10 @@ public class DatabaseOperations {
 //	
 	
 	public ArrayList<String> getALL() throws Exception{
-		//QUERY DO BAZY DANYCH.
+		
 		String selectAll = "SELECT * FROM testowa;";
 		
 		try {
-			// TUTAJ JU¯ WYWO£ANIE NA TYM statement.
 			ResultSet result = statement.executeQuery(selectAll);
 			
 			ArrayList<String> array = new ArrayList<String>();
@@ -67,16 +66,13 @@ public class DatabaseOperations {
 		return null;
 	}
 	
-<<<<<<< HEAD
 	public ArrayList<String> getClient() throws Exception{
-		//QUERY DO BAZY DANYCH.
+
 		String selectAll = "SELECT * FROM Client;";
 		
 		try {
-			// TUTAJ JU¯ WYWO£ANIE NA TYM statement.
 			ResultSet result = statement.executeQuery(selectAll);
 			
-			ArrayList<String> array = new ArrayList<String>();
 			while(result.next()) {
 				System.out.print(result.getString("ID")); System.out.print("  ");
 				System.out.print(result.getString("PESEL")); System.out.print(" ");
@@ -84,7 +80,6 @@ public class DatabaseOperations {
 				System.out.println(result.getString("Surname")); 
 				
 			}
-			return array;
 		}catch(Exception e){
 			System.out.println(e);
 		}
@@ -92,14 +87,11 @@ public class DatabaseOperations {
 	}
 	
 	public ArrayList<String> getCar() throws Exception{
-		//QUERY DO BAZY DANYCH.
 		String selectAll = "SELECT * FROM Car;";
 		
 		try {
-			// TUTAJ JU¯ WYWO£ANIE NA TYM statement.
 			ResultSet result = statement.executeQuery(selectAll);
 			
-			ArrayList<String> array = new ArrayList<String>();
 			while(result.next()) {
 				System.out.print(result.getString("ID")); System.out.print("  ");
 				System.out.print(result.getString("Model")); System.out.print(" ");
@@ -108,19 +100,29 @@ public class DatabaseOperations {
 				System.out.println(result.getString("Availability")); 
 				
 			}
-			return array;
 		}catch(Exception e){
-=======
+			}
+		return null;
+		}
+		
 	public ArrayList<String> getStatus() throws Exception{
 		
-		String selectStatus = "SELECT model, make, year, availability FROM Cars WHERE availability='Yes';";
-		preparedStatement = connection.prepareStatement(selectStatus);
+		String selectStatus = "SELECT Model, Make, Year, Availability FROM Car WHERE Availability='Yes';";
 		
 		
 		try {
-			ResultSet result = preparedStatement.executeQuery(selectStatus);
+			ResultSet result = statement.executeQuery(selectStatus);
+			
+			System.out.println("Model | Make | Year | Availability");
+			
+			while(result.next()) {
+				System.out.print(result.getString("Model")); System.out.print("     ");
+				System.out.print(result.getString("Make")); System.out.print("    ");
+				System.out.print(result.getString("Year")); System.out.print("    ");
+				System.out.println(result.getString("Availability")); 
+			}
+			
 		} catch(Exception e){
->>>>>>> kBranch
 			System.out.println(e);
 		}
 		return null;
@@ -162,15 +164,15 @@ public class DatabaseOperations {
 			System.out.println(e);
 		}
 	}
-	
-<<<<<<< HEAD
+
 	public void insertCar(String model, String make, int year, String availability) throws Exception{
 		preparedStatement = connection.prepareStatement("INSERT INTO Car(Model, Make, Year, Availability) VALUES(?,?,?,?)");
 		preparedStatement.setString(1, model);
 		preparedStatement.setString(2, make);
 		preparedStatement.setInt(3, year);
 		preparedStatement.setString(4, availability);
-=======
+	}
+		
 	public void checkExistanceEmployee() throws Exception{
 			
 			try {
@@ -231,7 +233,6 @@ public class DatabaseOperations {
 		}catch(Exception e) {
 			System.out.println(e);
 		}
->>>>>>> kBranch
 		
 		
 		try {
