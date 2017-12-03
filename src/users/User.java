@@ -2,27 +2,21 @@ package users;
 
 public class User {
 	
-	private String firstName;
-	private String lastName;
+	private String name;
+	private String surname;
 	private int id;
 	private long pesel;
 	
-	public User(String firstName, String lastName, int id, long pesel) {
+	public User(String name, String surname, int id, long pesel) {
 		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.name = name;
+		this.surname = surname;
 		this.id = id;
 		this.pesel = pesel;
 	}
 	
-	public String getFirstName() {
-		return firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public String getName() {
+		return name;
 	}
 	public int getId() {
 		return id;
@@ -36,8 +30,16 @@ public class User {
 	public void setPesel(long pesel) {
 		this.pesel = pesel;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
 	}
 	
 	
