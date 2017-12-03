@@ -11,9 +11,7 @@ public static void main(String args[]) throws Exception {
 		dboper.getConnection();
 		dboper.getALL();
 		dboper.getID();
-		dboper.checkExistance();
-		dboper.insertExample("name");
-		dboper.insertExample("imie2");
+		dboper.checkExistanceCar();
 		
 //		dboper.inserExamplePS("Malgorzata");
 		
