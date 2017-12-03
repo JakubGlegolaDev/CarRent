@@ -42,7 +42,7 @@ public static void main(String args[]) throws Exception {
 		System.out.println("Type 'status' to see informations about available cars and rental capacity");
 		type = scanner.nextLine();
 		if(type.equals("status")) {
-			dboper.getStatus(); // aktualna lista dostêpnych samochodów
+			dboper.getStatus(); // aktualna lista dostêpnych samochodów.
 		}
 		
 		
