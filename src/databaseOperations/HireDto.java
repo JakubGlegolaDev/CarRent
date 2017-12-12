@@ -1,12 +1,12 @@
 package databaseOperations;
 
-public class Hire {
+public class HireDto {
 
 	private int hireId;
 	private int carId;
 	private int clientId;
 	
-	public Hire(int hireId, int carId, int clientId) {
+	public HireDto(int hireId, int carId, int clientId) {
 		super();
 		this.hireId = hireId;
 		this.carId = carId;
@@ -31,7 +31,5 @@ public class Hire {
 	public void setClientId(int clientId) {
 		this.clientId = clientId;
 	}
-	
-	
 	
 }
