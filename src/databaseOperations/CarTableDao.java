@@ -53,9 +53,22 @@ public class CarTableDao {
 		preparedStatement.setString(2, make);
 		preparedStatement.setInt(3, year);
 		preparedStatement.setString(4, availability);
+		
+		try {
+			preparedStatement.executeUpdate();
+			System.out.print("Dodano samochod do tabeli Car");
+		}catch (SQLException e) {
+			e.printStackTrace();
+			System.out.print("Nie udalo sie dodac samochodu");
+			System.out.println(e);
+		}finally {
+			if (preparedStatement != null) {
+				preparedStatement.close();
+			}
+		}
 	}
 	
-	public void checkExistanceCarTable() throws Exception{
+	public boolean checkExistanceCarTable() throws Exception{
 		
 		try {
 	
@@ -63,30 +76,33 @@ public class CarTableDao {
 			ResultSet result = dbMetaData.getTables(null, null, "Car", null);
 			if(result.next()) {
 				System.out.println("Base found");
+				return true;
 			} else {
 				System.out.println("Base does not found");
+				return false;
 			}
 		}catch(Exception e){
 			System.out.println(e);
+			return false;
 		}
 	}
 	
 	
 	public ArrayList<String> getAllAvailabilityCar() throws Exception{
 		
-		String selectStatus = "SELECT Model, Make, Year, Availability FROM Car WHERE Availability='Yes';";
+		String selectStatus = "SELECT Model, Make, Year FROM Car WHERE Availability='Yes';";
 		
 		
 		try {
 			ResultSet result = statement.executeQuery(selectStatus);
 			
-			System.out.println("Model | Make | Year | Availability");
+			System.out.println("Model | Make | Year  ");
 			
 			while(result.next()) {
-				System.out.print(result.getString("Model")); System.out.print("   ");
-				System.out.print(result.getString("Make")); System.out.print("   ");
-				System.out.print(result.getString("Year")); System.out.print("   ");
-				System.out.println(result.getString("Availability")); 
+				System.out.print(result.getString("Model")); System.out.print(" | ");
+				System.out.print(result.getString("Make")); System.out.print(" | ");
+				System.out.println(result.getString("Year")); 
+ 
 			}
 			
 		} catch(Exception e){

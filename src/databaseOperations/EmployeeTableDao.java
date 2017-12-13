@@ -44,11 +44,12 @@ public class EmployeeTableDao {
 				System.out.print(result.getLong("PESEL")); System.out.print(" ");
 				System.out.print(result.getString("Name")); System.out.print(" ");
 				System.out.print(result.getString("Surname")); System.out.print(" ");
-				System.out.print(result.getString("Poffesion")); System.out.print(" ");
+				System.out.print(result.getString("Proffesion")); System.out.print(" ");
 				System.out.println(result.getInt("Salary")); 				
 			}
 		}catch(Exception e){
-			}
+			System.out.println(e);
+		}
 		return null;
 	}	
 	
@@ -59,11 +60,12 @@ public class EmployeeTableDao {
 		preparedStatement.setString(3, surname);
 		preparedStatement.setString(4, proffesion);
 		preparedStatement.setInt(5, salary);
-		
-		
+				
 		try {
 			preparedStatement.executeUpdate();
+			System.out.print("Employee added successfully");
 		}catch (SQLException e) {
+			System.out.println("Error occured while insert Employee was executed");
 			e.printStackTrace();
 			System.out.println(e);
 		}finally {
@@ -73,7 +75,7 @@ public class EmployeeTableDao {
 		}
 	}
 	
-	public void checkExistanceEmployee() throws Exception{
+	public boolean checkExistanceEmployee() throws Exception{
 		
 		try {
 	
@@ -81,12 +83,15 @@ public class EmployeeTableDao {
 			ResultSet result = dbMetaData.getTables(null, null, "Emplyoee", null);
 			if(result.next()) {
 				System.out.println("Base found");
+				return true;
 			} else {
 				System.out.println("Base does not found");
+				return false;
 			}
 		}catch(Exception e){
 			System.out.println(e);
 		}
+		return false;
 	}
 	
 }

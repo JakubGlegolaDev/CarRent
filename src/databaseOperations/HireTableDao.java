@@ -56,11 +56,12 @@ public class HireTableDao {
 		preparedStatement.setInt(1, carId);		
 		preparedStatement.setInt(2, clientId);
 		preparedStatement.setInt(3, hireId);
-		
-		
+			
 		try {
 			preparedStatement.executeUpdate();
+			System.out.print("Hire added successfully");
 		}catch (SQLException e) {
+			System.out.print("Error occured while insert Hire was executed");
 			e.printStackTrace();
 			System.out.println(e);
 		}finally {
@@ -70,7 +71,7 @@ public class HireTableDao {
 		}
 	}
 	
-	public void checkExistanceHire() throws Exception{
+	public boolean checkExistanceHire() throws Exception{
 		
 		try {
 	
@@ -78,11 +79,14 @@ public class HireTableDao {
 			ResultSet result = dbMetaData.getTables(null, null, "Hire", null);
 			if(result.next()) {
 				System.out.println("Base found");
+				return true;
 			} else {
 				System.out.println("Base does not found");
+				return false;
 			}
 		}catch(Exception e){
 			System.out.println(e);
 		}
+		return false;
 	}
 }

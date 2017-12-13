@@ -61,9 +61,11 @@ public class ClientTableDao {
 		
 		try {
 			preparedStatement.executeUpdate();
+			System.out.print("Client added successfully");
 		}catch (SQLException e) {
+			System.out.print("Error occured while insert Client was executed");
 			e.printStackTrace();
-			System.out.println(e);
+			System.out.println(e);			
 		}finally {
 			if (preparedStatement != null) {
 				preparedStatement.close();
@@ -71,7 +73,7 @@ public class ClientTableDao {
 		}
 	}
 	
-	public void checkExistanceClient() throws Exception{
+	public boolean checkExistanceClient() throws Exception{
 		
 		try {
 	
@@ -79,12 +81,15 @@ public class ClientTableDao {
 			ResultSet result = dbMetaData.getTables(null, null, "Client", null);
 			if(result.next()) {
 				System.out.println("Base found");
+				return true;
 			} else {
 				System.out.println("Base does not found");
+				return false;
 			}
 		}catch(Exception e){
 			System.out.println(e);
 		}
+		return false;
 	}
 
 	
