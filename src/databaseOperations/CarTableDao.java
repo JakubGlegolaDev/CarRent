@@ -110,4 +110,23 @@ public class CarTableDao {
 		}
 		return null;
 	}
+	
+	public ResultSet getCarById(int carId) throws Exception{
+		
+		ResultSet result = null;
+		
+		try {
+			String carIdString = String.valueOf(carId);
+			String selectById = "SELECT * FROM Car WHERE ID ='"+carIdString+"';";
+			result = statement.executeQuery(selectById);
+			System.out.println("Wykonal sie resultSet");
+			
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+			
+		return result;
+	}
+	
+	
 }
