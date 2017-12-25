@@ -94,4 +94,22 @@ public class EmployeeTableDao {
 		return false;
 	}
 	
+	
+	public ResultSet getEmployeeById(int employeeId) throws Exception{
+			
+			ResultSet result = null;
+			
+			try {
+				String employeeIdString = String.valueOf(employeeId);
+				String selectById = "SELECT * FROM Employee WHERE ID ='"+employeeIdString+"';";
+				result = statement.executeQuery(selectById);
+				System.out.println("Wykonal sie resultSet");
+				
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+				
+			return result;
+		}
+	
 }
